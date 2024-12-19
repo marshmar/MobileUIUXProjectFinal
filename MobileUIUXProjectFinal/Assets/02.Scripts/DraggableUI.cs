@@ -45,7 +45,7 @@ public CanvasGroup CanvasGroup { get => canvasGroup; set => canvasGroup = value;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        tempObj = Instantiate(imagePrefab, transform);   
+        tempObj = (GameObject)Instantiate(imagePrefab, transform);   
         /* if(tempObj.TryGetComponent<Data>(out Data data))
          {
              data.time = dataComponent.time;
@@ -82,6 +82,7 @@ public CanvasGroup CanvasGroup { get => canvasGroup; set => canvasGroup = value;
             /*transform.SetParent(previousParent);
             rect.position = previousParent.GetComponent<RectTransform>().position;*/
             Destroy(tempObj);
+            tempObj = null;
             return;
         }
 

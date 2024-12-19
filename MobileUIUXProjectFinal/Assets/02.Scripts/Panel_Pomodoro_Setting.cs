@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class Panel_Pomodoro_Setting : MonoBehaviour
 {
     [Header("Panels")]
@@ -9,11 +9,20 @@ public class Panel_Pomodoro_Setting : MonoBehaviour
     [SerializeField] private GameObject pomodoroListPanel;
     [SerializeField] private GameObject pomodoroDataPanel;
 
+    [Header("Top Texts")]
+    [SerializeField] private TMP_Text titleText;
+
+    [Header("Buttons")]
+    [SerializeField] private GameObject createButton;
+    [SerializeField] private GameObject saveButton;
+
+    private bool isCreatingPomodoro;
     // Start is called before the first frame update
     void Awake()
     {
         pomodoroListPanel.SetActive(true);
         pomodoroDataPanel.SetActive(false);
+        isCreatingPomodoro = false;
     }
 
     // Update is called once per frame
@@ -38,5 +47,29 @@ public class Panel_Pomodoro_Setting : MonoBehaviour
 
         // 나머지 패널들 비활성화
         pomodoroListPanel.SetActive(false);
+
+        // 상단 텍스트 설정
+        if (isCreatingPomodoro) // 뽀모도로 생성 창일 경우
+        {
+            SetTitleText("뽀모도로 생성");
+            createButton.SetActive(false);
+            saveButton.SetActive(false);
+        }
+        else
+        {
+            SetTitleText("뽀모도로 설정");
+            createButton.SetActive(false);
+            saveButton.SetActive(false);
+        }
+    }
+
+    private void SetTitleText(string text)
+    {
+        titleText.text = text;
+    }
+
+    public void setCreatingPomodoro(bool value)
+    {
+        isCreatingPomodoro = value;
     }
 }

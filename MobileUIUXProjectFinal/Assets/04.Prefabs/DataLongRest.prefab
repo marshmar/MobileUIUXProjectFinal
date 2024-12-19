@@ -92,7 +92,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3103981329093471899}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 35229582057047939}
+        m_TargetAssemblyTypeName: Data, Assembly-CSharp
+        m_MethodName: DestroyThisObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   scale: 0.8
   time: 0.08
 --- !u!114 &3103981329093471899

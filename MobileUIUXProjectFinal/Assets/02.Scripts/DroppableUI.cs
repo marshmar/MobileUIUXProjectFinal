@@ -50,10 +50,7 @@ public class DroppableUI : MonoBehaviour, IPointerEnterHandler, IDropHandler, IP
                 dui.TempObj.transform.position = rect.position;
                 dui.TempObj.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
                 dui.TempObj.GetComponent<CanvasGroup>().alpha = 1.0f;
-                /*if(dui.TempObj.TryGetComponent<Data>(out Data data))
-                {
-                    //data.SetPomodoroData();
-                }*/
+
             }
         }
     }

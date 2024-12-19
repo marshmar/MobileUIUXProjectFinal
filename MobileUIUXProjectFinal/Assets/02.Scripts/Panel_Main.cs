@@ -9,12 +9,13 @@ public class Panel_Main : MonoBehaviour
     [SerializeField] private GameObject infinityStudyPanel;
     [SerializeField] private GameObject beforePomodoroPanel;
     [SerializeField] private GameObject pomodoroStudyPanel;
-    [SerializeField] private GameObject panelMusic;
     [SerializeField] private GameObject pomodoroSettingPanel;
 
-    [Header("Main Top Middle Contents")]
+    [Header("Main Top Middle Bottm Contents")]
     [SerializeField] private GameObject mainTopPanel;
     [SerializeField] private GameObject mainMiddlePanel;
+    [SerializeField] private GameObject panelMusic;
+    [SerializeField] private GameObject mainBottomPanel;
 
     public void Awake()
     {
@@ -25,6 +26,9 @@ public class Panel_Main : MonoBehaviour
         pomodoroStudyPanel.SetActive(false);
         panelMusic.SetActive(true);
         //pomodoroSettingPanel.SetActive(false);
+        mainTopPanel.SetActive(true);
+        mainMiddlePanel.SetActive(true);
+        mainBottomPanel.SetActive(true);
     }
 
     // 무한 공부 대기 화면으로 세팅

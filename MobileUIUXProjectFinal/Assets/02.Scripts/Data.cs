@@ -8,15 +8,8 @@ public class Data : MonoBehaviour
     public float time;
     public TYPE type;
 
-    // Start is called before the first frame update
-    void Start()
+    public void DestroyThisObject()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Destroy(this.gameObject);
     }
 }
