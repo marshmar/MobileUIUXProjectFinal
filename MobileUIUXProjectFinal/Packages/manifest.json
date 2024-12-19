@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "com.gindemit.rlottie": "https://github.com/gindemit/unity-rlottie.git?path=/unity/RLottieUnity/Assets/LottiePlugin/#0.2.2",
     "com.unity.collab-proxy": "2.6.0",
+    "com.unity.feature.2d": "2.0.0",
     "com.unity.feature.development": "1.0.1",
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.7.6",
