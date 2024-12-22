@@ -41,7 +41,7 @@ public class FadeOnIdle : MonoBehaviour
 
     }
 
-    private void OnClickDetected()
+    public void OnClickDetected()
     {
         // 클릭 시 알파값을 1로 설정하고 페이드를 중지
         canvasGroup.alpha = 1;

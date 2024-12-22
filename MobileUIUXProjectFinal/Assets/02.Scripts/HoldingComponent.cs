@@ -15,9 +15,10 @@ public class HoldingComponent : Button
     private RectTransform rectTransform;
     private bool isPressing;
     private bool createdImage;
+    private bool isScaling;
     private WaitForSeconds watingTime;
     private float touchStartTime;
-
+    private Vector3 originalScale;
     // Start is called before the first frame update
     protected override void Start()
     {
@@ -25,8 +26,10 @@ public class HoldingComponent : Button
         enableImage.SetActive(false);
         createdImage = false;
         isPressing = false;
+        isScaling = false;
         rectTransform = GetComponent<RectTransform>();
         watingTime = new WaitForSeconds(time);
+        originalScale = new Vector3(rectTransform.localScale.x, rectTransform.localScale.y, rectTransform.localScale.z);
     }
 
     // Update is called once per frame
@@ -35,11 +38,11 @@ public class HoldingComponent : Button
         if (isPressing && !createdImage)
         {
             float touchTime = Time.time;
-            Debug.Log("터치 중");
-            if (touchTime - touchStartTime >= 1.0f)
+            if (touchTime - touchStartTime >= holdingTime)
             {
-                transform.DOPunchScale(new Vector3(0.0f, 0.0f, 0.0f), 0.3f, 1, 0);
+                transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0.2f), 0.3f, 1, 0);
                 enableImage.SetActive(true);
+                createdImage = true;
             }
         }
 
@@ -49,6 +52,7 @@ public class HoldingComponent : Button
             if(!RectTransformUtility.RectangleContainsScreenPoint(rectTransform, mousePosition))
             {
                 enableImage.SetActive(false);
+                createdImage = false;
             }
         }
     }
@@ -59,44 +63,47 @@ public class HoldingComponent : Button
         isPressing = true;
     }
 
-    public override void OnPointerUp(PointerEventData pointerEventData)
+    public override void OnPointerClick(PointerEventData eventData)
     {
         isPressing = false;
         float touchEndTime, timeDiff;
         touchEndTime = Time.time;
 
         timeDiff = touchEndTime - touchStartTime;
-        Debug.Log(timeDiff);
 
-        if (timeDiff >= 1.0f)
+        if (timeDiff < holdingTime && !createdImage)
         {
-
-            //enableImage.SetActive(true);
-
+            StartCoroutine(Scale(eventData));
         }
         else
         {
-            if (!createdImage)
-            {
-                StartCoroutine(Scale(pointerEventData));
-            }
-
+            return;
         }
-
+        //base.OnPointerClick(eventData);
     }
 
+    public override void OnPointerUp(PointerEventData eventData)
+    {
+        isPressing = false;
+        base.OnPointerUp(eventData);
+    }
     public IEnumerator Scale(PointerEventData eventData)
     {
-        Vector3 currScale = new Vector3(rectTransform.localScale.x, rectTransform.localScale.y, rectTransform.localScale.z);
-        transform.DOScale(currScale * scale, 0.05f);
+        if (isScaling) yield break;
+        isScaling = true;
+        transform.DOScale(originalScale * scale, 0.05f);    // 스케일 줄이기
+
+        Debug.Log("크기 조절");
+        yield return watingTime;
+
+        Debug.Log("크기 원상 복구");
+        transform.DOScale(originalScale, 0.05f);            // 스케일 원래대로
 
         yield return watingTime;
 
-        transform.DOScale(currScale, 0.05f);
-
-        yield return watingTime;
-
-        base.OnPointerClick(eventData);
+        Debug.Log("OnClick 실행");
+        isScaling = false;
+        base.OnPointerClick(eventData);                     // OnClick이벤트 실행
     }
 
 }

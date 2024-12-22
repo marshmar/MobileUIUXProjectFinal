@@ -43,6 +43,10 @@ public class DroppableUI : MonoBehaviour, IPointerEnterHandler, IDropHandler, IP
         // pointerDrag는 현재 드래그하고 있는 대상(=아이템)
         if(eventData.pointerDrag != null)
         {
+            int childCount = transform.childCount;
+            // 자식의 개수가 12개 이상이면 return;
+            if (childCount >= 12) return;
+
             if(eventData.pointerDrag.transform.TryGetComponent<DraggableUI>(out DraggableUI dui))
             {
                 // 드래그하는 있는 대상의 부모를 현재 오브젝트로 설정하고, 위치를 현재 오브젝트 위치와 동일하게 설정

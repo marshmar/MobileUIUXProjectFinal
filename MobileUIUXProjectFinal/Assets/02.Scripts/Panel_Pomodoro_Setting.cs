@@ -7,7 +7,8 @@ public class Panel_Pomodoro_Setting : MonoBehaviour
     [Header("Panels")]
     [SerializeField] private GameObject pomodoroSettingTopPanel;
     [SerializeField] private GameObject pomodoroListPanel;
-    [SerializeField] private GameObject pomodoroDataPanel;
+    [SerializeField] public GameObject pomodoroDataPanel;
+    [SerializeField] private Transform pomodoroSequencePanel;
 
     [Header("Top Texts")]
     [SerializeField] private TMP_Text titleText;
@@ -38,10 +39,12 @@ public class Panel_Pomodoro_Setting : MonoBehaviour
 
         // 나머지 패널들 비활성화
         pomodoroDataPanel.SetActive(false);
+
     }
 
     public void EnablePomodoroDataPanel()
     {
+
         // 뽀모도로 데이터 패널 활성화
         pomodoroDataPanel.SetActive(true);
 
@@ -52,18 +55,20 @@ public class Panel_Pomodoro_Setting : MonoBehaviour
         if (isCreatingPomodoro) // 뽀모도로 생성 창일 경우
         {
             SetTitleText("뽀모도로 생성");
-            createButton.SetActive(false);
+            createButton.SetActive(true);
             saveButton.SetActive(false);
         }
         else
         {
             SetTitleText("뽀모도로 설정");
             createButton.SetActive(false);
-            saveButton.SetActive(false);
+            saveButton.SetActive(true);
         }
+
+
     }
 
-    private void SetTitleText(string text)
+    public void SetTitleText(string text)
     {
         titleText.text = text;
     }
@@ -72,4 +77,13 @@ public class Panel_Pomodoro_Setting : MonoBehaviour
     {
         isCreatingPomodoro = value;
     }
+
+    public void ClearPomodoroDataPanel()
+    {
+        foreach (Transform child in pomodoroSequencePanel)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
 }

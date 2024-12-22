@@ -228,8 +228,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1138565238056772848}
+  m_Children: []
   m_Father: {fileID: 4382571856898497240}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -299,81 +298,6 @@ MonoBehaviour:
   m_Spacing: {x: 16, y: 0}
   m_Constraint: 2
   m_ConstraintCount: 1
---- !u!1 &4215700583879510262
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1138565238056772848}
-  - component: {fileID: 298192751400751344}
-  - component: {fileID: 6163797111083763317}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1138565238056772848
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4215700583879510262}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5231955056851880258}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &298192751400751344
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4215700583879510262}
-  m_CullTransparentMesh: 1
---- !u!114 &6163797111083763317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4215700583879510262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &5279559033743970577
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,9 +561,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Panel_Pomodoro_Setting, Assembly-CSharp
-        m_MethodName: EnablePomodoroDataPanel
+      - m_Target: {fileID: 7864310678367089270}
+        m_TargetAssemblyTypeName: PomodoroData, Assembly-CSharp
+        m_MethodName: EnablePanelDataSetting
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -666,6 +590,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataList: []
+  pomodoroName: 
+  contentToggleGroup: {fileID: 0}
+  scaledToggle: {fileID: 5674547181300909028}
+  text: {fileID: 4395901783987080149}
+  iconPanel: {fileID: 5231955056851880258}
+  PPS: {fileID: 0}
+  pomodoroDataPanel: {fileID: 0}
+  animatedImages:
+  - {fileID: 6424938625010985392, guid: 430589bbf2bfd414890b94bb2679ee5f, type: 3}
+  - {fileID: 6424938625010985392, guid: 56fc15bf377b72b46b82d6fb61168881, type: 3}
+  - {fileID: 6424938625010985392, guid: a5ef666037d2a2a4c82e8a6147c56d86, type: 3}
+  - {fileID: 6424938625010985392, guid: 0f7d511571d4a0d47bc864458c191967, type: 3}
 --- !u!1001 &5049417065826175703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -674,6 +610,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8503156465296539155}
     m_Modifications:
+    - target: {fileID: -8587475494885144269, guid: c21c4e21d9229784faf45e1b6c68a3a0, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8587475494885144269, guid: c21c4e21d9229784faf45e1b6c68a3a0, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8587475494885144269, guid: c21c4e21d9229784faf45e1b6c68a3a0, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7864310678367089270}
+    - target: {fileID: -8587475494885144269, guid: c21c4e21d9229784faf45e1b6c68a3a0, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8587475494885144269, guid: c21c4e21d9229784faf45e1b6c68a3a0, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EquipPomodoroData
+      objectReference: {fileID: 0}
+    - target: {fileID: -8587475494885144269, guid: c21c4e21d9229784faf45e1b6c68a3a0, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PomodoroData, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: -8587475494885144269, guid: c21c4e21d9229784faf45e1b6c68a3a0, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2038130765093531496, guid: c21c4e21d9229784faf45e1b6c68a3a0, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -824,6 +788,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8592452621903620072, guid: c21c4e21d9229784faf45e1b6c68a3a0, type: 3}
   m_PrefabInstance: {fileID: 5049417065826175703}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5674547181300909028 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -8587475494885144269, guid: c21c4e21d9229784faf45e1b6c68a3a0, type: 3}
+  m_PrefabInstance: {fileID: 5049417065826175703}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9db9654fbbbb162479c8e0fc3df177e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6521326266182743666
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -832,6 +807,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8503156465296539155}
     m_Modifications:
+    - target: {fileID: 94272807848763938, guid: 990f84b03e2bce34d9cf1efc09ad5564, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 94272807848763938, guid: 990f84b03e2bce34d9cf1efc09ad5564, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 94272807848763938, guid: 990f84b03e2bce34d9cf1efc09ad5564, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7864310678367089270}
+    - target: {fileID: 94272807848763938, guid: 990f84b03e2bce34d9cf1efc09ad5564, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 94272807848763938, guid: 990f84b03e2bce34d9cf1efc09ad5564, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RemovePomodoroDataInManger
+      objectReference: {fileID: 0}
+    - target: {fileID: 94272807848763938, guid: 990f84b03e2bce34d9cf1efc09ad5564, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PomodoroData, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 94272807848763938, guid: 990f84b03e2bce34d9cf1efc09ad5564, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 387440051544376975, guid: 990f84b03e2bce34d9cf1efc09ad5564, type: 3}
       propertyPath: m_Type
       value: 0

@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum TYPE { SHORTSTUDY, LONGSTUDY, SHORTREST, LONGREST}
-public class Data : MonoBehaviour
+
+[CreateAssetMenu(fileName = "NewData", menuName = "Data")]
+public class Data : ScriptableObject
 {
     public float time;
     public TYPE type;
 
-    public void DestroyThisObject()
+    // 데이터 복사본 만들기
+    public Data Clone()
     {
-        Destroy(this.gameObject);
+        Data clonedData = Instantiate(this);
+        clonedData.time = this.time;
+        clonedData.type = this.type;
+        return clonedData;
+
     }
 }

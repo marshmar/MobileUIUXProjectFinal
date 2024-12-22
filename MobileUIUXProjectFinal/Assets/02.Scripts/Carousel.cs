@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using LottiePlugin.UI;
 
 public class Carousel : MonoBehaviour
 {
@@ -36,6 +37,18 @@ public class Carousel : MonoBehaviour
         targetPosition = new Vector2(newX, content.anchoredPosition.y);
     }
 
+    public void PlayAnimIndex(int index)
+    {
+        AnimatedImage anim = items[index].GetComponent<AnimatedImage>();
+        anim._playOnAwake = true;
+        anim.Play();
+    }
+
+    public void StopAnimIndex(int index)
+    {
+        AnimatedImage anim = items[index].GetComponent<AnimatedImage>();
+        anim.Stop();
+    }
     private void SmoothScroll()
     {
         content.anchoredPosition = Vector2.Lerp(content.anchoredPosition, targetPosition, Time.deltaTime * smoothSpeed);
@@ -58,8 +71,20 @@ public class Carousel : MonoBehaviour
         }
     }
 
-    public void CenterOnItem(int index)
+    public void SetAnimationAllItems(bool isPlay)
     {
-
+        foreach(RectTransform rect in items)
+        {
+            AnimatedImage anim = rect.GetComponent<AnimatedImage>();
+            if (isPlay)
+            {
+                anim.Play();
+            }
+            else
+            {
+                anim._playOnAwake = false;
+                //anim.Stop();
+            }
+        }
     }
 }

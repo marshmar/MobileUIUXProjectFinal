@@ -14,7 +14,8 @@ GameObject:
   - component: {fileID: 3103981329093471899}
   - component: {fileID: 3682445601225016050}
   - component: {fileID: 9198474882665567382}
-  - component: {fileID: 35229582057047939}
+  - component: {fileID: -8112331700832333341}
+  - component: {fileID: 3886283819122450724}
   m_Layer: 5
   m_Name: DataLongRest
   m_TagString: Untagged
@@ -93,9 +94,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 35229582057047939}
-        m_TargetAssemblyTypeName: Data, Assembly-CSharp
-        m_MethodName: DestroyThisObject
+      - m_Target: {fileID: -8112331700832333341}
+        m_TargetAssemblyTypeName: DeleteObject, Assembly-CSharp
+        m_MethodName: DeleteGameObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -165,7 +166,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &35229582057047939
+--- !u!114 &-8112331700832333341
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,8 +175,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2890815711714619416}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e4ea3b92b450684693b9cba30d664d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 75d44f077ba02584da98af6c502b2e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 900
-  type: 3
+--- !u!114 &3886283819122450724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2890815711714619416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3118e2284dd254e82d9dab6b9ffc79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 5367d94fe2d4a9f44abb9db31f28d50d, type: 2}
